@@ -1,4 +1,4 @@
-export default function Reservations() {
+export default function CreateReservation() {
     return (
         <section className="reservations">
             <h1>Make a Reservation</h1>
