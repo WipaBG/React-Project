@@ -1,0 +1,356 @@
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: white; /* Background color of the page */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black; /* Set font color to black */
+}
+
+a {
+  text-decoration: none;
+  color: black; /* Set link color to black */
+}
+
+a:hover {
+  color: #333; /* Slightly lighter black for hover effect */
+}
+
+/* Navigation Styles */
+nav {
+  background-color: white; /* Background color of the navbar */
+  padding: 1em 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc; /* Border for definition */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 1em;
+}
+
+nav ul li a {
+  color: black; /* Set navbar link color to black */
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #f4f4f4; /* Light gray background on hover */
+  color: #333; /* Slightly lighter black for hover effect */
+}
+
+/* Footer Styles */
+footer {
+  background-color: white; /* Background color of the footer */
+  color: black; /* Set footer text color to black */
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid #ccc; /* Border for definition */
+}
+
+/* Home Section */
+.home {
+  position: relative;
+  background-image: url('../public/img/PhBackground.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black; /* Set text color in the home section to black */
+  padding: 4em 2em;
+  text-align: center;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home h1, .home p{
+  color: white
+}
+
+.home h1{
+  font-size: 5em;
+  margin-bottom: 0.2em;
+}
+/* Dark Overlay */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  z-index: 1;
+}
+
+.home > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Recent Comments Section */
+.recent-comments {
+  padding: 2em;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white; /* Background color of the comments section */
+  color: black; /* Set comments text color to black */
+}
+
+.recent-comments h1 {
+  color: black; /* Set section heading color to black */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+#comments-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.comment {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white; /* Background color of individual comments */
+  color: black; /* Set comment text color to black */
+}
+
+.comment p {
+  margin: 0;
+}
+
+.comment p strong {
+  color: black; /* Set strong text color within comments to black */
+}
+
+.add-comment {
+  padding: 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: #fafafa; /* Light grey background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.add-comment h1 {
+  color: black; /* Dark green for header */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+.add-comment form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.add-comment label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #333; /* Dark text color for better readability */
+}
+
+.add-comment input, .add-comment textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.add-comment textarea {
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+.add-comment button {
+  padding: 0.75em 1.5em;
+  background-color: black; /* Dark green background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-comment button:hover {
+  background-color: black; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover for a subtle effect */
+}
+
+/* Rooms Section */
+.rooms {
+  padding: 2em;
+  background-color: white; /* Background color of the rooms section */
+  color: black; /* Set text color in rooms section to black */
+}
+
+.rooms h1 {
+  color: black; /* Set section heading color to black */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.room {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white; /* Background color of individual room items */
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.room img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.room h2 {
+  color: black; /* Set room titles color to black */
+  padding: 1em;
+  text-align: center;
+}
+
+.room:hover {
+  transform: scale(1.05);
+}
+
+/* Room Details Section */
+.room-details {
+  padding: 2em;
+  background-color: white; /* Background color of room details section */
+  color: black; /* Set text color in room details section to black */
+}
+
+.room-details h1 {
+  color: black; /* Set section heading color to black */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #333; /* Dark text color for better readability */
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+button {
+  padding: 0.75em 1.5em;
+  background-color: black; /* Dark green background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: black; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover for a subtle effect */
+}
+
+/* Login Section */
+.login {
+  padding: 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: #fafafa; /* Light grey background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.login h1 {
+  color: black; /* Dark green for header */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+/* Register Section */
+.register {
+  padding: 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: #fafafa; /* Light grey background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.register h1 {
+  color: black; /* Dark green for header */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
+
+/* Reservations Section */
+.reservations {
+  padding: 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  background-color: #fafafa; /* Light grey background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+}
+
+.reservations h1 {
+  color: black; /* Dark green for header */
+  font-size: 2.5em;
+  margin-bottom: 1em;
+}
