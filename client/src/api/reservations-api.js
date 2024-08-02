@@ -9,3 +9,12 @@ export const getAll = async () => {
 
   return reservations;
 };
+
+export const getOne =  (reservationId) => request.get(`${BASE_URL}/${reservationId}`);;
+
+const reservationsAPI = {
+  getAll,
+  getOne,
+};
+
+export default reservationsAPI;
