@@ -4,30 +4,28 @@ export default function CreateReservation() {
             <h1>Make a Reservation</h1>
             <form>
                 <label htmlFor="name">Full Name:</label>
-                <input type="text" id="name" name="name" required/>
+                <input type="text" id="name" name="name" required />
 
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" required/>
 
-                        <label htmlFor="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required/>
+                <label htmlFor="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required />
 
-                            <label htmlFor="room-type">Room Type:</label>
-                            <select id="room-type" name="room-type" required>
-                                <option value="deluxe">Studio</option>
-                                <option value="standard">Apartament for Three</option>
-                                <option value="standard">Apartament for Four</option>
-                                <option value="standard">Sea view apartament</option>
-                            </select>
+                <label htmlFor="roomType">Room Type:</label>
+                <select id="roomType" name="roomType" required>
+                    <option value="Studio">Studio</option>
+                    <option value="apForThree">Apartament for Three</option>
+                    <option value="apForFour">Apartament for Four</option>
+                    <option value="seaView">Sea view apartament</option>
+                </select>
 
-                            <label htmlFor="check-in">Check-In Date:</label>
-                            <input type="date" id="check-in" name="check-in" required/>
+                <label htmlFor="checkIn">Check-In Date:</label>
+                <input type="date" id="checkIn" name="checkIn" required />
 
-                                <label htmlFor="check-out">Check-Out Date:</label>
-                                <input type="date" id="check-out" name="check-out" required/>
+                <label htmlFor="checkOut">Check-Out Date:</label>
+                <input type="date" id="checkOut" name="checkOut" required />
 
-                                    <button type="submit">Reserve</button>
-                                </form>
-                            </section>
-                            )
+                <button type="submit">Reserve</button>
+            </form>
+        </section>
+    )
 }

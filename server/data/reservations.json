@@ -1,0 +1,20 @@
+{
+    "8ab2cb4e-3262-4b95-bb8c-bcd4c0107502": {
+        "name": "Ivan Ivanov Ivanov",
+        "email": "ivan@abv.bg",
+        "phone": "123456789",
+        "roomType": "Studio",
+        "checkIn": "08.25.2024",
+        "checkOut": "08.30.2024",
+        "_id": "8ab2cb4e-3262-4b95-bb8c-bcd4c0107502"
+    },
+    "854c15ec-c26f-4b69-8745-0746c965e715": {
+        "name": "Georgi Georgiev Georgiev",
+        "email": "georgi@abv.bg",
+        "phone": "123456789",
+        "roomType": "apForThree",
+        "checkIn": "07.05.2024",
+        "checkOut": "07.10.2024",
+        "_id": "854c15ec-c26f-4b69-8745-0746c965e715"
+    }
+}
