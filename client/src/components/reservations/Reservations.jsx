@@ -13,7 +13,11 @@ export default function Reservations() {
     return (
         <div className='reservations'>
             <h2>Reservations</h2>
-            {reservations.map(reservation => <ReservationItem key={reservation._id}{...reservation} />)}
+            {reservations.length > 0 ?
+                reservations.map(reservation => <ReservationItem key={reservation._id}{...reservation} />) 
+                : <h3>No reservations yet</h3>
+            }
+
 
         </div>
     )
