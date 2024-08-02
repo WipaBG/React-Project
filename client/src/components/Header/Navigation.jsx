@@ -11,6 +11,8 @@ export default function Navigation() {
                     <li><Link to="/register">Register</Link></li>
                     <li><Link to="/logout">Logout</Link></li>
                     <li><Link to ='/create-reservation'>Reserve</Link></li>
+                    <li><Link to ='/reservations'>Reservations</Link></li>
+
 
 
 
