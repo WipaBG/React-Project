@@ -1,0 +1,72 @@
+{
+    "50e6007d-0ba1-4ca9-ac44-e60a03609865": {
+        "number": "204",
+        "capacity": "2",
+        "img": "../../public/img/StudioPh.jpg",
+        "roomType": "studio",
+        "_id": "50e6007d-0ba1-4ca9-ac44-e60a03609865"
+    },
+    "c0700dde-0610-46c7-9226-90cf0b9bf0a8": {
+        "number": "204",
+        "capacity": "2",
+        "img": "../../public/img/StudioPh.jpg",
+        "roomType": "studio",
+        "_id": "c0700dde-0610-46c7-9226-90cf0b9bf0a8"
+    },
+    "269b7b18-f40b-4559-a25e-1f5ada08ac01": {
+        "number": "201",
+        "capacity": "4",
+        "img": "../../public/img/ApForFour.png",
+        "roomType": "apForFour",
+        "_id": "269b7b18-f40b-4559-a25e-1f5ada08ac01"
+    },
+    "4f7e5a60-080b-4f12-a11d-ef654a757ba4": {
+        "number": "203",
+        "capacity": "4",
+        "img": "../../public/img/ApForFour.png",
+        "roomType": "apForFour",
+        "_id": "4f7e5a60-080b-4f12-a11d-ef654a757ba4"
+    },
+    "e0209e2b-0b7d-4d1f-888d-10f2a2272553": {
+        "number": "301",
+        "capacity": "4",
+        "img": "../../public/img/ApForFour.png",
+        "roomType": "apForFour",
+        "_id": "e0209e2b-0b7d-4d1f-888d-10f2a2272553"
+    },
+    "d2ffde7d-27c4-4467-a914-0aa6d89ebd2c": {
+        "number": "303",
+        "capacity": "4",
+        "img": "../../public/img/ApForFour.png",
+        "roomType": "apForFour",
+        "_id": "d2ffde7d-27c4-4467-a914-0aa6d89ebd2c"
+    },
+    "50c39634-e91e-417d-9d39-d80088d0a8b4": {
+        "number": "202",
+        "capacity": "3",
+        "img": "../../public/img/ApForThree.png",
+        "roomType": "apForThree",
+        "_id": "50c39634-e91e-417d-9d39-d80088d0a8b4"
+    },
+    "a95e015c-3ba0-45bb-87b9-b2367ed5c23b": {
+        "number": "302",
+        "capacity": "3",
+        "img": "../../public/img/ApForThree.png",
+        "roomType": "apForThree",
+        "_id": "a95e015c-3ba0-45bb-87b9-b2367ed5c23b"
+    },
+    "f42a41ad-39ff-4e91-b897-43d806a39db4": {
+        "number": "401",
+        "capacity": "4",
+        "img": "../../public/img/SeaView.png",
+        "roomType": "seaView",
+        "_id": "f42a41ad-39ff-4e91-b897-43d806a39db4"
+    },
+    "f0a387c5-2d72-40fd-98f9-1621d8d71ca1": {
+        "number": "402",
+        "capacity": "4",
+        "img": "../../public/img/SeaView.png",
+        "roomType": "seaView",
+        "_id": "f0a387c5-2d72-40fd-98f9-1621d8d71ca1"
+    }
+}

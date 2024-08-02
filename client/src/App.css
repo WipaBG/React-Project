@@ -355,6 +355,49 @@ button:hover {
   margin-bottom: 1em;
 }
 
+.room-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.room-title {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.room-details-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.room-details-list li {
+  margin: 5px 0;
+}
+
+.room-image-container {
+  margin-top: 20px;
+}
+
+.room-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.room-image:hover {
+  transform: scale(1.05);
+}
 
 
 
