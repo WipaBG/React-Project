@@ -10,7 +10,7 @@ export function useForm(initialValues, submitCallback){
         }))
     };
 
-    const submitHandler = () =>{
+    const submitHandler = (e) =>{
         e.preventDefault();
 
         submitCallback(values);
