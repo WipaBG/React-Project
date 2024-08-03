@@ -2,7 +2,7 @@ import * as request from "./requester";
 
 const BASE_URL = "http://localhost:3030/jsonstore/reservations";
 
-export const getAll = async () => {
+ const getAll = async () => {
   const result = await request.get(BASE_URL);
 
   const reservations = Object.values(result);
@@ -10,7 +10,7 @@ export const getAll = async () => {
   return reservations;
 };
 
-export const getOne =  (reservationId) => request.get(`${BASE_URL}/${reservationId}`);;
+ const getOne =  (reservationId) => request.get(`${BASE_URL}/${reservationId}`);;
 
 const reservationsAPI = {
   getAll,

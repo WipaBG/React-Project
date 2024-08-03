@@ -33,7 +33,6 @@ export default function CatalogDetails() {
         e.preventDefault();
 
         const newComment = await commentsApi.create(roomId, username, comment, formattedDate);
-        console.log(newComment)
         setRoom(prevState => ({
             ...prevState,
             comments: {

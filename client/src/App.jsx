@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './components/home/Home'
 import Navigation from './components/Header/Navigation'
 import About from './components/about/About'
-import Rooms from './components/catalog/Rooms'
+import Catalog from './components/catalog/Catalog'
 import CatalogDetails from './components/catalogDetails/CatalogDetails'
 
 
@@ -27,7 +27,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/rooms' element={<Rooms />} />
+        <Route path='/rooms' element={<Catalog />} />
         <Route path='/rooms/:roomId/details' element={<CatalogDetails />} />
 
         <Route path='/about' element={<About />} />

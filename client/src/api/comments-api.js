@@ -2,7 +2,6 @@ import requester from "./requester";
 
 const BASE_URL = "http://localhost:3030/jsonstore/rooms";
 const buildUrl = (roomId) => `${BASE_URL}/${roomId}/comments`;
-console.log(buildUrl)
 
 const create = async (roomId, username, text, date) => requester.post(buildUrl(roomId), { username, text, date });
 

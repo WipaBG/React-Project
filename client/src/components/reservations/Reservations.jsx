@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react';
-
-import * as reservationAPI from '../../api/reservations-api';
-
+import { useGetAllReservations } from '../../hooks/useReservations';
 import ReservationItem from './reservaion-item/ReservationItem';
 
 export default function Reservations() {
-    const [reservations, setReservations] = useState([]);
+    const [reservations] = useGetAllReservations();
 
-    useEffect(() => {
-        (async () => {
-            const result = await reservationAPI.getAll();
-
-            setReservations(result);
-        })();
-        reservationAPI.getAll()
-            .then(result => setReservations(result))
-    }, []);
 
     return (
         <div className='reservations'>
