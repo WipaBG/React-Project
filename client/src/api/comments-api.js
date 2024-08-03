@@ -5,8 +5,6 @@ const buildUrl = (roomId) => `${BASE_URL}/${roomId}/comments`;
 
 const create = async (roomId, username, text, date) => requester.post(buildUrl(roomId), { username, text, date });
 
-
-
 const getAll = async (gameId)=>{
   const result = await requester.get(buildUrl(gameId));
   const comments = Object.values(result);
