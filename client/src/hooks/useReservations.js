@@ -1,33 +1,37 @@
 import { useEffect, useState } from "react";
 
-import reservationsAPI from '../api/reservations-api';
+import reservationsAPI from "../api/reservations-api";
 
-export function useGetAllReservations(){
-    const [reservations, setReservations] = useState([]);
+export function useGetAllReservations() {
+  const [reservations, setReservations] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            const result = await reservationsAPI.getAll();
+  useEffect(() => {
+    (async () => {
+      const result = await reservationsAPI.getAll();
 
-            setReservations(result);
-        })();
-    }, []);
+      setReservations(result);
+    })();
+  }, []);
 
-    return [reservations];
+  return [reservations];
 }
 
-export function useGetOneReservations(reservationId){
-    const [reservation, setReservation] = useState({});
-    
+export function useGetOneReservations(reservationId) {
+  const [reservation, setReservation] = useState({});
 
-    useEffect(() => {
-        (async () => {
-           const result = await reservationsAPI.getOne(reservationId)
-           setReservation(result);
-        })();
+  useEffect(() => {
+    (async () => {
+      const result = await reservationsAPI.getOne(reservationId);
+      setReservation(result);
+    })();
+  }, [reservationId]);
 
-        
-    },[reservationId]);
+  return [reservation, setReservation];
+}
 
-    return [reservation, setReservation]
-}   
+export function useCreateReservation() {
+  const gameCreateHandler = (reservationData) =>
+    reservationsAPI.create(reservationData);
+
+  return gameCreateHandler;
+}
