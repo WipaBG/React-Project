@@ -11,10 +11,13 @@ export default function Login() {
     const navigate = useNavigate();
     const loginHandler = async ({ email, password }) => {
         try {
-            await login(email, password)
-            navigate('/')
+            await login(email, password);
+
+            navigate('/');
+
         } catch (err) {
-            console.log(err.message)
+            
+            console.log(err.message);
         }
     }
 
