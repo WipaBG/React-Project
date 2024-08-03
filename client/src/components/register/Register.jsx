@@ -4,7 +4,7 @@ import { useRegister } from "../../hooks/useAuth"
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 
-const initialValues = { email: '', password: '', rePassword:'' };
+const initialValues = { email: '', password: '', rePassword: '' };
 
 export default function Register() {
     const [error, setError] = useState('');
@@ -31,7 +31,6 @@ export default function Register() {
         changeHandler,
         submitHandler
     } = useForm(initialValues, registerHandler)
-
     return (
         <section className="register">
             <h1>Register</h1>
@@ -60,7 +59,7 @@ export default function Register() {
                     required />
 
 
-                {error && 
+                {error &&
                     <p className="error">
                         <span>{error}</span>
                     </p>
