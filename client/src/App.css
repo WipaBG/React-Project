@@ -401,3 +401,14 @@ button:hover {
 
 
 
+.noComment {
+  color: #888888;            /* Light gray text color */
+  font-style: italic;        /* Italicize the text */
+  font-size: 16px;           /* Set the font size */
+  text-align: center;        /* Center the text horizontally */
+  margin: 20px 0;            /* Add vertical space above and below */
+  padding: 10px;             /* Add padding inside the element */
+  border: 1px solid #cccccc; /* Add a subtle border */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 5px;        /* Rounded corners */
+}

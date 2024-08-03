@@ -10,7 +10,9 @@ export const getAll = async () => {
   return rooms;
 };
 
-export const getOne =  (roomId) => request.get(`${BASE_URL}/${roomId}`);;
+export const getOne =  (roomId) => request.get(`${BASE_URL}/${roomId}`);
+
+
 
 const roomsApi = {
   getAll,

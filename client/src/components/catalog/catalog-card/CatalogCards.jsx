@@ -7,15 +7,14 @@ export default function CatalogCard({
     roomType,
     _id,
 }) {
-    return (
-        <>
-            <Link to={`/rooms/${_id}/details`}>
-                <div className="room">
-                    <img src={img} alt="Studio" data-room="Studio" />
-                    <h2>{roomType}</h2>
-                </div>
-            </Link>
 
-        </>
+    return (
+        <Link to={`/rooms/${_id}/details`}>
+            <div className="room">
+                <img src={img} alt="Studio" data-room="Studio" />
+                <h2>{roomType}</h2>
+            </div>
+        </Link>
+
     )
 }
