@@ -15,3 +15,19 @@ export function useGetAllReservations(){
 
     return [reservations];
 }
+
+export function useGetOneReservations(reservationId){
+    const [reservation, setReservation] = useState({});
+    
+
+    useEffect(() => {
+        (async () => {
+           const result = await reservationsAPI.getOne(reservationId)
+           setReservation(result);
+        })();
+
+        
+    },[reservationId]);
+
+    return [reservation, setReservation]
+}   

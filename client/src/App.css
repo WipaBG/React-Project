@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: white; /* Background color of the page */
+  background-color: #f9f4ef; /* Light beige background for warmth */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -12,28 +12,29 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: black; /* Set font color to black */
+  color: #333; /* Darker color for better contrast */
 }
 
 a {
   text-decoration: none;
-  color: black; /* Set link color to black */
+  color: #2c3e50; /* Dark blue color for links */
+  transition: color 0.3s;
 }
 
 a:hover {
-  color: #333; /* Slightly lighter black for hover effect */
+  color: #145c21; /* Dark green color for hover effect */
 }
 
 /* Navigation Styles */
 nav {
-  background-color: white; /* Background color of the navbar */
+  background-color: #2c3e50; /* Dark blue background for navbar */
   padding: 1em 0;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  border-bottom: 1px solid #ccc; /* Border for definition */
+  border-bottom: 2px solid #145c21; /* Dark green border for contrast */
 }
 
 nav ul {
@@ -49,26 +50,25 @@ nav ul li {
 }
 
 nav ul li a {
-  color: black; /* Set navbar link color to black */
+  color: white; /* White text color for navbar links */
   padding: 0.5em 1em;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 nav ul li a:hover {
-  background-color: #f4f4f4; /* Light gray background on hover */
-  color: #333; /* Slightly lighter black for hover effect */
+  background-color: #34495e; /* Slightly lighter blue on hover */
 }
 
 /* Footer Styles */
 footer {
-  background-color: white; /* Background color of the footer */
-  color: black; /* Set footer text color to black */
+  background-color: #2c3e50; /* Dark blue background for footer */
+  color: white; /* White text color for footer */
   text-align: center;
   padding: 1em 0;
   width: 100%;
   margin-top: auto;
-  border-top: 1px solid #ccc; /* Border for definition */
+  border-top: 2px solid #145c21; /* Dark green border for contrast */
 }
 
 /* Home Section */
@@ -78,7 +78,7 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: black; /* Set text color in the home section to black */
+  color: white; /* White text color for home section */
   padding: 4em 2em;
   text-align: center;
   height: 70vh;
@@ -87,14 +87,16 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
-.home h1, .home p{
-  color: white
-}
 
-.home h1{
+.home h1 {
   font-size: 5em;
   margin-bottom: 0.2em;
 }
+
+.home p {
+  font-size: 1.5em;
+}
+
 /* Dark Overlay */
 .home::before {
   content: "";
@@ -112,17 +114,19 @@ footer {
   z-index: 2;
 }
 
-/* Recent Comments Section */
+/* Recent Reservations Section */
 .recent-reservations {
   padding: 2em;
   max-width: 800px;
-  margin: 0 auto;
-  background-color: white; /* Background color of the comments section */
-  color: black; /* Set comments text color to black */
+  margin: 2em auto;
+  background-color: #f5f5dc; /* Warm beige background */
+  color: #333; /* Dark text color for readability */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .recent-reservations h1 {
-  color: black; /* Set section heading color to black */
+  color: #145c21; /* Dark green color for section heading */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -136,9 +140,10 @@ footer {
 .comment, .reservation {
   padding: 1em;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white; /* Background color of individual comments */
-  color: black; /* Set comment text color to black */
+  border-radius: 8px;
+  background-color: #ffffff; /* White background for individual comments */
+  color: #333; /* Dark text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .comment p {
@@ -146,21 +151,21 @@ footer {
 }
 
 .comment p strong {
-  color: black; /* Set strong text color within comments to black */
+  color: #145c21; /* Dark green color for strong text */
 }
 
 .add-comment {
   padding: 2em;
   max-width: 600px;
   margin: 2em auto;
-  background-color: #fafafa; /* Light grey background for contrast */
+  background-color: #ffffff; /* White background for contrast */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   text-align: center;
 }
 
 .add-comment h1 {
-  color: black; /* Dark green for header */
+  color: #145c21; /* Dark green color for header */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -175,7 +180,7 @@ footer {
   display: block;
   margin-bottom: 0.5em;
   font-weight: bold;
-  color: #333; /* Dark text color for better readability */
+  color: #34495e; /* Dark blue color for labels */
 }
 
 .add-comment input, .add-comment textarea {
@@ -193,7 +198,7 @@ footer {
 
 .add-comment button {
   padding: 0.75em 1.5em;
-  background-color: black; /* Dark green background */
+  background-color: #145c21; /* Dark green background for buttons */
   color: white;
   border: none;
   border-radius: 5px;
@@ -203,19 +208,19 @@ footer {
 }
 
 .add-comment button:hover {
-  background-color: black; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover for a subtle effect */
+  background-color: #3c5a40; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Rooms Section */
 .rooms {
   padding: 2em;
-  background-color: white; /* Background color of the rooms section */
-  color: black; /* Set text color in rooms section to black */
+  background-color: #f9f4ef; /* Light beige background */
+  color: #333; /* Dark text color for readability */
 }
 
 .rooms h1 {
-  color: black; /* Set section heading color to black */
+  color: #145c21; /* Dark green color for section heading */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -231,9 +236,10 @@ footer {
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
-  background-color: white; /* Background color of individual room items */
+  background-color: #ffffff; /* White background for room items */
   width: 300px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .room img {
@@ -244,24 +250,27 @@ footer {
 }
 
 .room h2 {
-  color: black; /* Set room titles color to black */
+  color: #333; /* Dark text color */
   padding: 1em;
   text-align: center;
 }
 
 .room:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 /* Room Details Section */
 .room-details {
   padding: 2em;
-  background-color: white; /* Background color of room details section */
-  color: black; /* Set text color in room details section to black */
+  background-color: #ffffff; /* White background for room details */
+  color: #333; /* Dark text color */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .room-details h1 {
-  color: black; /* Set section heading color to black */
+  color: #145c21; /* Dark green color for section heading */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -276,7 +285,7 @@ label {
   display: block;
   margin-bottom: 0.5em;
   font-weight: bold;
-  color: #333; /* Dark text color for better readability */
+  color: #34495e; /* Dark blue color for labels */
 }
 
 input, select, textarea {
@@ -290,7 +299,7 @@ input, select, textarea {
 
 button {
   padding: 0.75em 1.5em;
-  background-color: black; /* Dark green background */
+  background-color: #145c21; /* Dark green background for buttons */
   color: white;
   border: none;
   border-radius: 5px;
@@ -300,8 +309,8 @@ button {
 }
 
 button:hover {
-  background-color: black; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover for a subtle effect */
+  background-color: #3c5a40; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Login Section */
@@ -309,14 +318,14 @@ button:hover {
   padding: 2em;
   max-width: 600px;
   margin: 2em auto;
-  background-color: #fafafa; /* Light grey background for contrast */
+  background-color: #ffffff; /* White background for contrast */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   text-align: center;
 }
 
 .login h1 {
-  color: black; /* Dark green for header */
+  color: #145c21; /* Dark green color for header */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -326,14 +335,14 @@ button:hover {
   padding: 2em;
   max-width: 600px;
   margin: 2em auto;
-  background-color: #fafafa; /* Light grey background for contrast */
+  background-color: #ffffff; /* White background for contrast */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   text-align: center;
 }
 
 .register h1 {
-  color: black; /* Dark green for header */
+  color: #145c21; /* Dark green color for header */
   font-size: 2.5em;
   margin-bottom: 1em;
 }
@@ -343,32 +352,69 @@ button:hover {
   padding: 2em;
   max-width: 600px;
   margin: 2em auto;
-  background-color: #fafafa; /* Light grey background for contrast */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  text-align: center;
+  background-color: #f1e7da; /* Beige background for warmth */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4b3f3f; /* Soft brown color for text */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.reservations h1 {
-  color: black; /* Dark green for header */
-  font-size: 2.5em;
+.reservations h3 {
+  font-size: 1.7em;
+  color: #145c21; /* Dark green for header text */
   margin-bottom: 1em;
+  border-bottom: 3px solid #145c21; /* Dark green border for emphasis */
+  padding-bottom: 0.5em;
 }
 
+.reservations p {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+  line-height: 1.7;
+}
+
+.reservations p span {
+  font-weight: bold;
+  color: #145c21; /* Dark green color for labels */
+}
+
+.reservations p:not(:last-child) {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 0.5em;
+}
+
+.reservations:hover {
+  transform: translateY(-8px); /* Lift the card more on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.reservations::before {
+  content: '';
+  display: block;
+  height: 6px;
+  width: 50%;
+  background-color: #145c21; /* Dark green accent */
+  border-radius: 4px;
+  margin: 0 auto 1em auto;
+}
+
+/* Room Container */
 .room-container {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff; /* White background for contrast */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   text-align: center;
   font-family: Arial, sans-serif;
 }
 
 .room-title {
   font-size: 1.8em;
-  color: #333;
+  color: #2c3e50; /* Dark blue color for room titles */
   margin-bottom: 15px;
 }
 
@@ -391,24 +437,23 @@ button:hover {
 .room-image {
   max-width: 100%;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   transition: transform 0.3s ease;
 }
 
 .room-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-
-
+/* No Comments Text */
 .noComment {
-  color: #888888;            /* Light gray text color */
-  font-style: italic;        /* Italicize the text */
-  font-size: 16px;           /* Set the font size */
-  text-align: center;        /* Center the text horizontally */
-  margin: 20px 0;            /* Add vertical space above and below */
-  padding: 10px;             /* Add padding inside the element */
+  color: #888888; /* Light gray text color */
+  font-style: italic; /* Italicize the text */
+  font-size: 16px; /* Set the font size */
+  text-align: center; /* Center the text horizontally */
+  margin: 20px 0; /* Add vertical space above and below */
+  padding: 10px; /* Add padding inside the element */
   border: 1px solid #cccccc; /* Add a subtle border */
   background-color: #f9f9f9; /* Light background color */
-  border-radius: 5px;        /* Rounded corners */
+  border-radius: 5px; /* Rounded corners */
 }

@@ -1,24 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import reservationsAPI from "../../api/reservations-api";
+import { useGetOneReservations } from "../../hooks/useReservations";
 
 
 export default function ReservationDetails() {
-    const [reservation, setReservation] = useState({});
     const { reservationId } = useParams();
-
-
-    useEffect(() => {
-        (async () => {
-           const result = await reservationsAPI.getOne(reservationId)
-           setReservation(result);
-        })();
-
-        
-    },[reservationId]);
-
-
-
+    const [reservation, setReservation] = useGetOneReservations(reservationId);
+    
     return (
         <div className="reservations">
             <h3>Name: {reservation.name}</h3>
