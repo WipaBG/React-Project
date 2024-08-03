@@ -4,7 +4,6 @@ import ReservationItem from './reservaion-item/ReservationItem';
 export default function Reservations() {
     const [reservations] = useGetAllReservations();
 
-
     return (
         <div className='reservations'>
             <h2>Reservations</h2>

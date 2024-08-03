@@ -30,8 +30,8 @@ export function useGetOneReservations(reservationId) {
 }
 
 export function useCreateReservation() {
-  const gameCreateHandler = (reservationData) =>
+  const reservationCreateHandler = (reservationData) =>
     reservationsAPI.create(reservationData);
 
-  return gameCreateHandler;
+  return reservationCreateHandler;
 }

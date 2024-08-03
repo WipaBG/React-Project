@@ -26,7 +26,6 @@ async function requester(method, url, data) {
   }
 
   const response = await fetch(url, options);
-  console.log(response);
   const result = await response.json();
 
   if (!response.ok) {
