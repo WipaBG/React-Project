@@ -9,6 +9,7 @@ const initialValues = { email: '', password: '', rePassword: '' };
 export default function Register() {
     const [error, setError] = useState('');
     const register = useRegister();
+
     const navigate = useNavigate();
 
     const registerHandler = async ({ email, password, rePassword }) => {

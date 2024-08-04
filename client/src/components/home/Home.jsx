@@ -7,6 +7,7 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
+            
             const result = await reservationsAPI.getAll();
 
             setLatestReservations(result.reverse().slice(0, 3));

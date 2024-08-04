@@ -1,9 +1,8 @@
-import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext'
+import { useAuthContext } from '../../contexts/AuthContext'
 
 export default function Navigation() {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated } = useAuthContext();
 
     return (
         <nav>
