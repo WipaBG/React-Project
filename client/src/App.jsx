@@ -7,11 +7,12 @@ import Navigation from './components/Header/Navigation'
 import About from './components/about/About'
 import Catalog from './components/catalog/Catalog'
 import CatalogDetails from './components/catalogDetails/CatalogDetails'
-
-
-
 import Login from './components/login/Login'
 import Register from './components/register/Register'
+import Logout from './components/logout/Logout'
+
+
+
 import Footer from './components/footer/Footer'
 
 import CreateReservation from './components/createReservation/CreateReservation'
@@ -40,6 +41,7 @@ function App() {
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/reservations/:reservationId/details" element={<ReservationDetails />} />
         <Route path='/create-reservation' element={<CreateReservation />} />
+        <Route path='/logout' element={<Logout/>}/>
 
 
       </Routes>

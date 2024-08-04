@@ -11,7 +11,6 @@ export default function ReservationDetails() {
     return (
         <div className="reservations">
             <h3>Name: {reservation.name}</h3>
-            <p>Email: {reservation.email}</p>
             <p>Phone: {reservation.phone}</p>
             <p>RoomType: {reservation.roomType}</p>
             <p>CheckIn: {reservation.checkIn}</p>
