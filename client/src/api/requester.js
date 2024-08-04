@@ -1,7 +1,9 @@
+import { getAccesToken } from "../utils/authUtils";
+
 async function requester(method, url, data) {
   const options = {};
 
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = getAccesToken();
 
   if (method !== "GET") {
     options.method = method;
