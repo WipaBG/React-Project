@@ -10,8 +10,9 @@ const initialValues = {
 }
 export default function CatalogDetails() {
     const { roomId } = useParams();
-    const [comments, setComments] = useGetAllComments(roomId);
+    const [comments, dispatch] = useGetAllComments(roomId);
     const createComment = useCreateComment();
+    const { email } = useAuthContext();
     const [room] = useGetOneRoom(roomId);
     const { isAuthenticated } = useAuthContext();
 
@@ -23,30 +24,20 @@ export default function CatalogDetails() {
     const formattedDate = `${month}-${day}-${year}`;
 
 
-    
+
     const { changeHandler,
         submitHandler,
         values
     } = useForm(initialValues, async ({ comment }) => {
-        try{
+        try {
             const newComment = await createComment(roomId, comment, formattedDate)
-            setComments(oldComments => [...oldComments, newComment])
-           
-        }catch(err){
+            // setComments(oldComments => [...oldComments, newComment])
+            dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } })
+
+        } catch (err) {
             console.log(err.message);
         }
     });
-
-
-   
-
-
-
-
-
-
-
-
 
 
     return (

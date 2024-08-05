@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { act, useEffect ,useReducer } from "react";
 import commentsApi from "../api/comments-api";
 
 export function useCreateComment() {
@@ -8,15 +8,29 @@ export function useCreateComment() {
   return createHandler;
 }
 
+function commentsReducer(state, action){
+  switch (action.type) {
+    case 'GET_ALL':
+      return action.payload.slice();
+    case'ADD_COMMENT':
+      return[...state, action.payload]
+  
+    default:
+      return state;
+  }
+
+
+}
+
 export function useGetAllComments(roomId) {
-  const [comments, setComments] = useState([]);
+  const [comments, dispatch] = useReducer(commentsReducer, []);
 
   useEffect(() => {
     (async () => {
       const result = await commentsApi.getAll(roomId);
-      setComments(result);
+      dispatch({type: 'GET_ALL', payload:result});
     })();
   }, [roomId]);
 
-  return [comments, setComments];
+  return [comments, dispatch];
 }
