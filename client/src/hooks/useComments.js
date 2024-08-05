@@ -3,7 +3,7 @@ import commentsApi from "../api/comments-api";
 
 export function useCreateComment() {
   const createHandler = (roomId, comment, date) =>
-    commentsApi.create(roomId, comment, date);
+  commentsApi.create(roomId, comment, date);
 
   return createHandler;
 }

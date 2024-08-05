@@ -21,12 +21,20 @@ export default function CatalogDetails() {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
     const day = String(currentDate.getDate()).padStart(2, '0');
     const formattedDate = `${month}-${day}-${year}`;
+
+
     
     const { changeHandler,
         submitHandler,
         values
-    } = useForm(initialValues, ({ comment }) => {
-        createComment(roomId, comment, formattedDate)
+    } = useForm(initialValues, async ({ comment }) => {
+        try{
+            const newComment = await createComment(roomId, comment, formattedDate)
+            setComments(oldComments => [...oldComments, newComment])
+           
+        }catch(err){
+            console.log(err.message);
+        }
     });
 
 
