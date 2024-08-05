@@ -457,6 +457,46 @@ button:hover {
   background-color: #f9f9f9; /* Light background color */
   border-radius: 5px; /* Rounded corners */
 }
+
+
+/* General button styles */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff; /* Text color */
+  background-color: #145c21; /* Button background color */
+  border: none;
+  border-radius: 4px;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.button:hover {
+  background-color: #2c2a46; /* Darker shade for hover */
+}
+
+/* Active state */
+.button:active {
+  background-color: #2c2a46; /* Even darker shade for active state */
+}
+
+/* Flexbox container for buttons */
+.button-container {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+}
+
+/* Optional: if you want to make sure buttons are always aligned in a row, even on small screens */
+.button-container {
+  flex-wrap: wrap;
+}
+
+
 .error{
   color: red;
 }

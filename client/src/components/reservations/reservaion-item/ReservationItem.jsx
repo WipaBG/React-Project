@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 export default function ReservationItem({
     _id,
     name,
-    email,
     phone,
     roomType,
     checkIn,
