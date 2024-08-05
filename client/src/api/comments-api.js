@@ -8,6 +8,7 @@ const create =  (roomId, text, date) =>
 const getAll = (roomId) => {
   const params = new URLSearchParams({
     where: `roomId="${roomId}"`,
+    load: `author=_ownerId:users`
   });
 
   return requester.get(`${BASE_URL}?${params.toString()}`);

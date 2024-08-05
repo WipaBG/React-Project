@@ -71,7 +71,7 @@ export default function CatalogDetails() {
 
                     {comments.map(comment => (
                         <div key={comment._id} className="comment">
-                            <p><strong>Username:</strong> {comment.text}</p>
+                            <p><strong>{comment.author.email}</strong> {comment.text}</p>
                             <p><small>{comment.date}</small></p>
                         </div>
                     ))
