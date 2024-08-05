@@ -15,11 +15,17 @@ const getOne = (reservationId) => request.get(`${BASE_URL}/${reservationId}`);
 const create = (reservationData) =>
   request.post(`${BASE_URL}`, reservationData);
 
+const remove = (reservationId) => request.del(`${BASE_URL}/${reservationId}`);
+
+const update = (reservationId, reservationData) =>
+  request.put(`${BASE_URL}/${reservationId}`, reservationData);
 
 const reservationsAPI = {
   getAll,
   getOne,
   create,
+  remove,
+  update
 };
 
 export default reservationsAPI;

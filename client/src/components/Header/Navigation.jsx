@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useAuthContext } from '../../contexts/AuthContext'
 import withAuth from '../../HOC/wtihAuth';
 
 function Navigation({
     auth,
 }) {
-    // const { isAuthenticated } = useAuthContext;
     const {isAuthenticated} = auth;
 
     return (

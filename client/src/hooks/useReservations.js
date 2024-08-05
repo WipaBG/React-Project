@@ -24,7 +24,7 @@ export function useGetOneReservations(reservationId) {
       setReservation(result);
     })();
   }, [reservationId]);
-
+  
   return [reservation, setReservation];
 }
 
@@ -33,4 +33,9 @@ export function useCreateReservation() {
     reservationsAPI.create(reservationData);
 
   return reservationCreateHandler;
+}
+
+
+export function useDeleteReservation(reservationId){
+  
 }

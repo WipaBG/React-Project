@@ -2,8 +2,8 @@ import './App.css'
 
 import { Routes, Route } from 'react-router-dom'
 
+import EnchancedHeader from './components/Header/Navigation'
 import Home from './components/home/Home'
-import Navigation from './components/Header/Navigation'
 import About from './components/about/About'
 import Catalog from './components/catalog/Catalog'
 import CatalogDetails from './components/catalogDetails/CatalogDetails'
@@ -13,12 +13,14 @@ import Logout from './components/logout/Logout'
 
 
 
+
 import Footer from './components/footer/Footer'
 
 import CreateReservation from './components/createReservation/CreateReservation'
 import Reservations from './components/reservations/Reservations'
 import ReservationDetails from './components/details/ReservationDetails'
 import { AuthContextProvider } from './contexts/AuthContext'
+import ReservationEdit from './components/reservationEdit/ReservationEdit'
 
 function App() {
 
@@ -27,7 +29,7 @@ function App() {
   return (
 
     <AuthContextProvider>
-      <Navigation />
+      <EnchancedHeader />
 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -40,6 +42,7 @@ function App() {
 
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/reservations/:reservationId/details" element={<ReservationDetails />} />
+        <Route path="/reservations/:reservationId/edit" element={<ReservationEdit />} />
         <Route path='/create-reservation' element={<CreateReservation />} />
         <Route path='/logout' element={<Logout/>}/>
 
