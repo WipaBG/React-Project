@@ -1,47 +1,40 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 
+import { useGetOneRoom } from "../../hooks/useCatalog";
+import { useForm } from "../../hooks/useForm";
+import { useCreateComment, useGetAllComments } from "../../hooks/useComments";
+import { useAuthContext } from "../../contexts/AuthContext";
 
-import commentsApi from "../../api/comments-api";
-
-import roomsApi from "../../api/rooms-api";
-
-
+const initialValues = {
+    comment: ''
+}
 export default function CatalogDetails() {
-    const [room, setRoom] = useState({});
     const { roomId } = useParams();
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
+    const [comments, setComments] = useGetAllComments(roomId);
+    const createComment = useCreateComment();
+    const [room] = useGetOneRoom(roomId);
+    const { isAuthenticated } = useAuthContext();
+
 
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
     const day = String(currentDate.getDate()).padStart(2, '0');
-    const formattedDate = `${month}-${day}-${year}`; 
+    const formattedDate = `${month}-${day}-${year}`;
+    
+    const { changeHandler,
+        submitHandler,
+        values
+    } = useForm(initialValues, ({ comment }) => {
+        createComment(roomId, comment, formattedDate)
+    });
 
 
-    useEffect(() => {
-        (async () => {
-            const result = await roomsApi.getOne(roomId);
-            setRoom(result);
-        })();
+   
 
 
-    }, [roomId]);
 
 
-    const commentSubmitHanlder = async (e) => {
-        e.preventDefault();
-
-        const newComment = await commentsApi.create(roomId, username, comment, formattedDate);
-        setRoom(prevState => ({
-            ...prevState,
-            comments: {
-                ...prevState.comments,
-                [newComment._id]: newComment,
-            }
-        }))
-    }
 
 
 
@@ -67,33 +60,24 @@ export default function CatalogDetails() {
 
 
                     </div>
-                    {Object.keys(room.comments || {}).length > 0
 
-                        ? Object.values(room.comments).map(comment => (
-                            <div key={comment._id} className="comment">
-                                <p><strong>{comment.username}:</strong> {comment.text}</p>
-                                <p><small>{comment.date}</small></p>
-                            </div>
-                        ))
-                        : <p className="noComment">No comments.</p>
+                    {comments.map(comment => (
+                        <div key={comment._id} className="comment">
+                            <p><strong>Username:</strong> {comment.text}</p>
+                            <p><small>{comment.date}</small></p>
+                        </div>
+                    ))
 
                     }
+                    {comments.length === 0 && <p className="noComment">No comments.</p>}
+
 
                 </section>
 
-                <section className="add-comment" >
+                {isAuthenticated && (<section className="add-comment" >
                     <h1>Add a Comment</h1>
-                    <form id="comment-form" onSubmit={commentSubmitHanlder}>
-                        <label htmlFor="comment-name">Name:</label>
-                        <input
-                            type="text"
-                            id="comment-name"
-                            name="name"
-                            required
-                            onChange={(e) => setUsername(e.target.value)}
-                            value={username}
+                    <form id="comment-form" onSubmit={submitHandler}>
 
-                        />
 
                         <label htmlFor="comment-text">Comment:</label>
                         <textarea
@@ -101,19 +85,16 @@ export default function CatalogDetails() {
                             name="comment"
                             rows="4"
                             required
-                            onChange={(e) => setComment(e.target.value)}
-                            value={comment}
+                            onChange={changeHandler}
+                            value={values.comment}
                         ></textarea>
 
                         <button type="submit">Submit Comment</button>
 
                     </form>
-                </section>
+                </section>)}
 
             </div>
-
-
         </>
-
     )
 }
