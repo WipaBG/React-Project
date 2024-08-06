@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm"
 import { useGetOneReservations } from "../../hooks/useReservations";
 import reservationsAPI from "../../api/reservations-api";
-import { useMemo } from "react";
 
 
 export default function ReservationEdit() {
@@ -19,7 +18,7 @@ export default function ReservationEdit() {
         
         if (isConfirmed) {
             const updatedReservation = await reservationsAPI.update(reservationId, values)
-            navigate(`/reservations/${reservationId}/details`)
+            navigate(`/reservations`)
         }
     });
 

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-
-import { useForm } from "../../hooks/useForm"
-import { useCreateReservation } from "../../hooks/useReservations";
+import { useForm } from "../../hooks/useForm";
+import { useCreateReservation, useGetAllReservations } from "../../hooks/useReservations";
+import { useState } from "react";
 
 const intitialValues = {
     name: '',
@@ -10,28 +10,43 @@ const intitialValues = {
     checkIn: '',
     checkOut: ''
 }
+
+const roomCounts = {
+    "Studio": 2,
+    "Apartament for three people": 2,
+    "Apartament for four people": 4,
+    "Sea view apartament": 2
+}
+
 export default function CreateReservation() {
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const createReservation = useCreateReservation();
+    const [allReservations] = useGetAllReservations();
 
     const createHandler = async (values) => {
         try {
-            const { _id: resevationId } = await createReservation(values);
-            navigate(`/reservations/${resevationId}/details`)
+            const overlappingReservations = allReservations.filter(reservation => {
+                return reservation.roomType === values.roomType &&
+                    ((reservation.checkIn >= values.checkIn && reservation.checkIn < values.checkOut) ||
+                        (reservation.checkOut > values.checkIn && reservation.checkOut <= values.checkOut) ||
+                        (reservation.checkIn <= values.checkIn && reservation.checkOut >= values.checkOut));
+            });
 
-        }catch(err){
-            //Set error state and display error
-            console.log(err.message)
+            if (overlappingReservations.length >= roomCounts[values.roomType]) {
+                setError("No available rooms for the selected period");
+                return;
+            }
+
+            const { _id: reservationId } = await createReservation(values);
+            navigate(`/reservations/${reservationId}/details`);
+
+        } catch (err) {
+            console.log(err.message);
         }
     }
 
-    const { values,
-        changeHandler,
-        submitHandler
-
-    } = useForm(intitialValues, createHandler);
-
-
+    const { values, changeHandler, submitHandler } = useForm(intitialValues, createHandler);
 
     return (
         <section className="reservations">
@@ -85,6 +100,14 @@ export default function CreateReservation() {
                     onChange={changeHandler}
 
                     required />
+
+                {error &&
+                    <p className="error">
+                        <span>{error}</span>
+                    </p>
+                }
+
+                
 
                 <button type="submit">Reserve</button>
             </form>

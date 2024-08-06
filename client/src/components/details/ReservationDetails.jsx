@@ -24,29 +24,27 @@ export default function ReservationDetails() {
     }
 
 
-    if (isOwner) {
-        return (
 
-            <div className="reservations">
-                <h3>Name: {reservation.name}</h3>
-                <p>Phone: {reservation.phone}</p>
-                <p>RoomType: {reservation.roomType}</p>
-                <p>CheckIn: {reservation.checkIn}</p>
-                <p>CheckOut: {reservation.checkOut}</p>
+    return (
 
-                {isOwner && (
-                    <div className="button-container">
-                        <Link to={`/reservations/${reservationId}/edit`} className="button">Modify reservation</Link>
-                        <a href="" onClick={reservationDeleteHandler} className="button">Cancel reservation</a>
-                    </div>
-                )}
+        <div className="reservations">
+            <h3>Name: {reservation.name}</h3>
+            <p>Phone: {reservation.phone}</p>
+            <p>RoomType: {reservation.roomType}</p>
+            <p>CheckIn: {reservation.checkIn}</p>
+            <p>CheckOut: {reservation.checkOut}</p>
 
-            </div>
+            {isOwner && (
+                <div className="button-container">
+                    <Link to={`/reservations/${reservationId}/edit`} className="button">Modify reservation</Link>
+                    <a href="/" onClick={reservationDeleteHandler} className="button">Cancel reservation</a>
+                </div>
+            )}
 
-        )
-    } else {
+        </div>
 
-    }
+    )
+
 
 
 }

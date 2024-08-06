@@ -11,7 +11,7 @@ export default function ReservationItem({
 }) {
     return (
         <Link to={`/reservations/${_id}/details`}>  
-                <div className="reservations">
+                <div className="reservation">
                     <div className="allReservations-info">
                         <h2>Name: {name}</h2>
                         <p>Room type: {roomType}</p>

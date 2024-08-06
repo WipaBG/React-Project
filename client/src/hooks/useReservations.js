@@ -41,7 +41,3 @@ export function useCreateReservation() {
   return reservationCreateHandler;
 }
 
-
-export function useDeleteReservation(reservationId){
-  
-}

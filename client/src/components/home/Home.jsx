@@ -7,7 +7,7 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            
+
             const result = await reservationsAPI.getLatest();
 
             setLatestReservations(result)
@@ -30,9 +30,6 @@ export default function Home() {
                         latestReservations.map(reservation => <LatestReservation key={reservation._id}{...reservation} />) :
                         <p>No recent reservations</p>
                     }
-
-
-
 
                 </div>
             </section>
