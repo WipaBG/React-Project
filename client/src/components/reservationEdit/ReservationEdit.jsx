@@ -2,14 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm"
 import { useGetOneReservations } from "../../hooks/useReservations";
 import reservationsAPI from "../../api/reservations-api";
+import { useMemo } from "react";
 
-const intitialValues = {
-    name: '',
-    phone: '',
-    roomType: '',
-    checkIn: '',
-    checkOut: ''
-}
 
 export default function ReservationEdit() {
     const navigate = useNavigate();
@@ -20,7 +14,7 @@ export default function ReservationEdit() {
         submitHandler,
         values,
         setValues,
-    } = useForm(Object.assign(intitialValues, reservation), async (values) => {
+    } = useForm(reservation, async (values) => {
         const isConfirmed = confirm('Are you sure you want to save changes')
         
         if (isConfirmed) {

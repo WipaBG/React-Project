@@ -8,9 +8,10 @@ export default function Home() {
     useEffect(() => {
         (async () => {
             
-            const result = await reservationsAPI.getAll();
+            const result = await reservationsAPI.getLatest();
 
-            setLatestReservations(result.reverse().slice(0, 3));
+            setLatestReservations(result)
+
         })();
     }, [])
 

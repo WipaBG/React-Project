@@ -10,6 +10,16 @@ const getAll = async () => {
   return reservations;
 };
 
+const getLatest = async () => {
+  const urlSearchParams = new URLSearchParams({
+    sortBy: "_createdOn desc",
+    pageSize: 3, 
+  });
+  const result = await request.get(`${BASE_URL}?${URLSearchParams.toString()}`);
+  const latestGames = Object.values(result);
+  return latestGames;
+};
+
 const getOne = (reservationId) => request.get(`${BASE_URL}/${reservationId}`);
 
 const create = (reservationData) =>
@@ -25,7 +35,8 @@ const reservationsAPI = {
   getOne,
   create,
   remove,
-  update
+  update,
+  getLatest
 };
 
 export default reservationsAPI;

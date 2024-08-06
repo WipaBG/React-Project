@@ -17,7 +17,13 @@ export function useGetAllReservations() {
 }
 
 export function useGetOneReservations(reservationId) {
-  const [reservation, setReservation] = useState({});
+  const [reservation, setReservation] = useState( {
+    name: '',
+    phone: '',
+    roomType: '',
+    checkIn: '',
+    checkOut: ''
+});
   useEffect(() => {
     (async () => {
       const result = await reservationsAPI.getOne(reservationId);

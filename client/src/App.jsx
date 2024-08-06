@@ -21,6 +21,7 @@ import Reservations from './components/reservations/Reservations'
 import ReservationDetails from './components/details/ReservationDetails'
 import { AuthContextProvider } from './contexts/AuthContext'
 import ReservationEdit from './components/reservationEdit/ReservationEdit'
+import PrivateGuard from './components/common/PrivateGuard'
 
 function App() {
 
@@ -40,11 +41,13 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
 
-        <Route path="/reservations" element={<Reservations />} />
+        <Route element={<PrivateGuard />}>
+          <Route path='reservations' element={<Reservations />}></Route>
+        </Route>
         <Route path="/reservations/:reservationId/details" element={<ReservationDetails />} />
         <Route path="/reservations/:reservationId/edit" element={<ReservationEdit />} />
         <Route path='/create-reservation' element={<CreateReservation />} />
-        <Route path='/logout' element={<Logout/>}/>
+        <Route path='/logout' element={<Logout />} />
 
 
       </Routes>
