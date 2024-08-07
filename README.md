@@ -10,16 +10,15 @@ This project was built with the idea of future development. The project aims to 
 
 This section outlines the structure of the project's source (`src`) folder, which contains all the main components and utilities used in the application.
 
-| Folder/File       | Description                                                                 |
-|-------------------|-----------------------------------------------------------------------------|
-| [api](#APIs)      | Contains modules for making API requests, including authentication.         |
-| [components](#Components) | Houses the React components used across the application.               |
-| [contexts](#Context) | Contains React context providers and consumers for global state management. |
-| [HOC](#HOC)       | Higher-Order Components that wrap other components to provide additional functionality. |
-| [hooks](#Hooks)   | Custom React hooks for reusable logic across components.                    |
-| [utils](#Utils)   | Utility functions and helpers used throughout the application.              |
-| [App.css](#UI)    | Main CSS file for styling the application.                                  |
-| [App.js](#App)    | Root component of the application where the main routing and structure are defined. |
+| Folder/File               | Description                                                                             |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| [api](#APIs)              | Contains modules for making API requests, including authentication.                     |
+| [components](#Components) | Houses the React components used across the application.                                |
+| [contexts](#Context)      | Contains React context providers and consumers for global state management.             |
+| [HOC](#HOC)               | Higher-Order Components that wrap other components to provide additional functionality. |
+| [hooks](#Hooks)           | Custom React hooks for reusable logic across components.                                |
+| [utils](#Utils)           | Utility functions and helpers used throughout the application.                          |
+
 
 ## APIs
 
@@ -209,6 +208,109 @@ const roomsApi = {
 
 export default roomsApi;
 ```
+
+## Components
+| Folder/File                               | Description                                                                                                                                                                                                                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [About](#About)                           | The `About` component displays information about "Villa Alexa" and includes a carousel for showcasing images. It uses the `react-slick` library for the carousel functionality.                                                                             |
+| [Catalog](#Catalog)                       | The `Catalog` component displays a list of rooms using data retrieved from a custom hook. Each room is represented by a `CatalogCard` component                                                                                                             |
+| [CatalogCard](#CatalogCard)               | The CatalogCard component represents an individual room card that includes an image and room type. It links to a detailed view of the room                                                                                                                  |
+| [Catalog Details](#Catalog Details)       | The `CatalogDetails` component displays detailed information about a specific room, including its details and comments. It also allows authenticated users to add new comments.                                                                             |
+| [Common / Private Guard](#Private Guard)  | The `PrivateGuard` component is used to protect routes by ensuring that only authenticated users can access them. It uses React Router's `Outlet` to render child routes if the user is authenticated, or redirects to the login page if not.               |
+| [CreateReservation](#Create-reservation)  | The `CreateReservation` component allows users to create a reservation by selecting room types, providing personal information, and specifying check-in and check-out dates. It validates the reservation against existing bookings to ensure availability. |
+| [ReservationDetails](#ReservationDetails) | The `ReservationDetails` component displays detailed information about a specific reservation and provides options to modify or cancel the reservation. It ensures that only the owner of the reservation can cancel it.                                    |
+| [Navigation](#Navigation)                 | The `Navigation` component provides a navigation menu for the website, with links that adapt based on the user's authentication status. It is wrapped with a higher-order component (`withAuth`) to inject authentication props.                            |
+| [Home](#Home)                             | The `Home` component serves as the landing page for the application. It displays a welcome message and a section for the latest reservations. It fetches the latest reservations from the API and displays them using the `LatestReservation` component.    |
+| [Login](#Login)                           | The `Login` component provides a user interface for users to log into the application. It manages user authentication by handling login form submission and displaying any authentication errors.                                                           |
+| [Login](#App)                             | The Login component provides a user interface for logging into the application. It includes a form where users can enter their email and password. Upon submission, it attempts to authenticate the user and navigate to the homepage if successfu          |
+| [Reservation](#App)                       | The Reservations component displays a list of all reservations made by the user. If there are no reservations, it shows a message indicating that no reservations have been made yet.                                                                       |
+| [ReservationItem](#App)                   | The ReservationItem component displays detailed information for a single reservation. It is only rendered if the reservation belongs to the currently authenticated user. The component provides a link to view more details about the reservation.         |
+
+## Contexts
+
+### AuthContext
+The AuthContext provides authentication state management and context to the entire application. It includes user information, authentication status, and methods to modify or clear authentication data.
+
+Components
+1. AuthContext
+A React context object used to share authentication data across the application.
+
+Default Values:
+
+userId: ''
+email: ''
+accessToken: ''
+isAuthenticated: false
+changeAuthState: (authState = {}) => null
+logout: () => null
+2. AuthContextProvider
+
+A React component that provides authentication context to its children. It manages authentication state using a custom hook and offers functions to change the authentication state or log out.
+Functions:
+changeAuthState(state): Updates the authentication state.
+logout(): Clears the authentication state.
+
+3. useAuthContext
+
+A custom hook to access authentication context data. It simplifies the process of retrieving and using authentication information within functional components.
+
+## HOC
+### withAuth
+withAuth is a Higher-Order Component (HOC) designed to inject authentication context into a wrapped component. It provides the wrapped component with authentication-related props, enabling it to access and utilize authentication data and functions.
+How It Works
++ useAuthContext Hook: The HOC uses the useAuthContext hook to access authentication data from the AuthContext.
++ Prop Injection: The HOC injects the authentication context into the wrapped component as the auth prop.
++ Component Enhancement: The wrapped component gains access to authentication details and functions without directly consuming the context.
+
+## Hooks
+| Folder/File         | Description                                                                                                                                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [useAuth](#useAuth) | These custom hooks provide a way to handle user authentication (login, register, and logout) by interacting with authentication API endpoints and managing authentication state through the AuthContext. |
+### useAuth
+* useLogin is a custom hook for handling user login. It interacts with the authentication API to perform login and updates the authentication state in the AuthContext.
+* useRegister is a custom hook for handling user registration. It interacts with the authentication API to perform registration and updates the authentication state in the AuthContext.
+* useLogout is a custom hook for handling user logout. It interacts with the authentication API to perform logout, updates the authentication state, and navigates the user to the login page.
+
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [useCatalog](#useCatalog)| 
+* getAllRooms is a custom hook for fetching and managing a list of all rooms. It retrieves room data from the rooms-api and provides it to the component.  
+* useGetOneRoom is a custom hook for fetching and managing data for a single room identified by roomId. It retrieves room data from the rooms-api based on the provided room ID.                                                
+
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [useComments](#useComments)             | 
+* useCreateComment is a custom hook that provides a handler function for creating comments. It interacts with the comments-api to add a new comment for a specific room.   
+* useGetAllComments is a custom hook that fetches and manages all comments for a specific room. It uses useReducer to handle state updates and useEffect to perform the data fetching.                                                              |
+
+
+
+
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [useForm](#useForm) | useForm is a custom hook that simplifies form handling in React components. It manages form state and provides handlers for form changes and submission.    |
+
+
+
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [usePersistedState](#usePersistedState) | is a custom React hook that manages state with persistence in localStorage. It initializes state from localStorage if available and provides a function to update the state, which also persists the new state in localStorage|
+
+
+
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [useReservations](#useReservations)     | 
+* useGetOneReservations is a custom hook that fetches a single reservation by its ID and manages the state of that reservation.
+* useCreateReservation is a custom hook that provides a function to create a new reservation through the API.|
+
+
+## utils
+| Folder/File                             | Description                                                                                                                                                                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [authUtils](#useReservations)   |utility function that retrieves the access token from the local storage. The token is used for authentication and authorization in API requests.|
+
+
 
 
 
