@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { useGetOneReservations } from '../../../hooks/useReservations';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 export default function ReservationItem({
     _id,
@@ -9,18 +11,26 @@ export default function ReservationItem({
     checkOut
 
 }) {
+    const [reservation, setReservation] = useGetOneReservations(_id);
+    const { userId } = useAuthContext();
+
     return (
-        <Link to={`/reservations/${_id}/details`}>  
-                <div className="reservation">
-                    <div className="allReservations-info">
-                        <h2>Name: {name}</h2>
-                        <p>Room type: {roomType}</p>
-                        <p>Period: {checkIn}-{checkOut}</p>
-                        <p>Phone number: {phone}</p>
-
+        <>
+            {reservation._ownerId === userId &&
+                <Link to={`/reservations/${_id}/details`}>
+                    <div className="reservation">
+                        <div className="allReservations-info">
+                            <h2>Name: {name}</h2>
+                            <p>Room type: {roomType}</p>
+                            <p>Check in: {checkIn}</p>
+                            <p>Checl out: {checkOut}</p>
+                            <p>Phone number: {phone}</p>
+                        </div>
                     </div>
-                </div>
 
-        </Link>
+                </Link>}
+
+        </>
+
     )
 }

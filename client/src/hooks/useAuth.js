@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { login, register, logout } from "../api/auth-api";
 import { useAuthContext } from "../contexts/AuthContext";
 
@@ -31,10 +32,14 @@ export const useRegister = () => {
 
 export const useLogout = () => {
   const { logout: localLogout } = useAuthContext();
+  const navigate = useNavigate();
 
   const logoutHandler = async () => {
-    localLogout();
     await logout();
+    localLogout();
+    navigate('/login')
+    
+    
   };
 
   return logoutHandler;

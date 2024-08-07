@@ -1642,7 +1642,19 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
+    	},
+        reservations:{
+            "38cac371-961a-48bc-b1fe-a16148061d8":{
+                name: "Ivan Ivanov Ivanov",
+                email: "ivan@abv.bg",
+                phone: "123456789",
+                roomType: "Studio",
+                checkIn: "2024-08-26",
+                checkOut: "2024-08.30"
+
+            }
+        }
+     
     };
     var rules$1 = {
     	users: {
