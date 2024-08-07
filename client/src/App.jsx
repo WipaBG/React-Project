@@ -40,14 +40,14 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-
         <Route element={<PrivateGuard />}>
+
           <Route path='reservations' element={<Reservations />}></Route>
-        </Route>
         <Route path="/reservations/:reservationId/details" element={<ReservationDetails />} />
         <Route path="/reservations/:reservationId/edit" element={<ReservationEdit />} />
         <Route path='/create-reservation' element={<CreateReservation />} />
         <Route path='/logout' element={<Logout />} />
+        </Route>
 
 
       </Routes>

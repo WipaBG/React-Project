@@ -47,6 +47,7 @@ export default function CatalogDetails() {
                 <ul className="room-details-list">
                     <li>Capacity: {room.capacity} people</li>
                     <li>Room type: {room.roomType}</li>
+                    <li>Price: {room.price} lv per night</li>
                 </ul>
                 <div className="room-image-container">
                     <img src={room.img} alt={`Room ${room.number}`} className="room-image" />

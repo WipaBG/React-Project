@@ -34,12 +34,10 @@ export default function ReservationDetails() {
             <p>CheckIn: {reservation.checkIn}</p>
             <p>CheckOut: {reservation.checkOut}</p>
 
-            {isOwner && (
-                <div className="button-container">
-                    <Link to={`/reservations/${reservationId}/edit`} className="button">Modify reservation</Link>
-                    <a href="/" onClick={reservationDeleteHandler} className="button">Cancel reservation</a>
-                </div>
-            )}
+            <div className="button-container">
+                <Link to={`/reservations/${reservationId}/edit`} className="button">Modify reservation</Link>
+                <a href="/" onClick={reservationDeleteHandler} className="button">Cancel reservation</a>
+            </div>
 
         </div>
 

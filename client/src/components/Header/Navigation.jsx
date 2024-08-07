@@ -15,8 +15,8 @@ function Navigation({
                 {isAuthenticated ? (
                     <>
                         <li><Link to="/logout">Logout</Link></li>
-                        <li><Link to='/create-reservation'>Reserve</Link></li>
-                        <li><Link to='/reservations'>Reservations</Link></li>
+                        <li><Link to='/create-reservation'>Check availability</Link></li>
+                        <li><Link to='/reservations'>My reservations</Link></li>
 
 
                     </>

@@ -6,7 +6,7 @@ import { useState } from "react";
 const intitialValues = {
     name: '',
     phone: '',
-    roomType: '',
+    roomType: 'Studio',
     checkIn: '',
     checkOut: ''
 }
@@ -50,7 +50,7 @@ export default function CreateReservation() {
 
     return (
         <section className="reservations">
-            <h1>Make a Reservation</h1>
+            <h1>Check available dates</h1>
             <form onSubmit={submitHandler}>
                 <label htmlFor="name">Full Name:</label>
                 <input type="text"
@@ -77,6 +77,7 @@ export default function CreateReservation() {
                     value={values.roomType}
                     onChange={changeHandler}
                     required>
+                        
                     <option value="Studio">Studio</option>
                     <option value="Apartament for three people">Apartament for Three</option>
                     <option value="Apartament for four people">Apartament for Four</option>
@@ -109,7 +110,7 @@ export default function CreateReservation() {
 
                 
 
-                <button type="submit">Reserve</button>
+                <button type="submit">Check</button>
             </form>
         </section>
     )

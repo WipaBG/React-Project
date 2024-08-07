@@ -16,9 +16,10 @@ export default function About() {
         <section className="about">
             <div className='info'>
                 <h1>Villa Alexa</h1>
-                <p>Villa Alexa offers apartaments and studio with free WiFi and private parking</p>
-                <p>All the apartaments and studio have a balcony, AC, flat-screen TV, bathroom and free bathroom applicances</p>
-                <p>A fully equiped kitchen box with a fridge and eletric jug</p>
+                <p>Villa Alexa offers apartaments and studio with free WiFi and private parking
+                    All the apartaments and studio have a balcony, AC, flat-screen TV, bathroom and free bathroom applicances
+                    A fully equiped kitchen box with a fridge and eletric jug</p>
+
             </div>
             <div className='carousel'>
                 <Slider {...settings}>

@@ -1,13 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm"
-import { useGetOneReservations } from "../../hooks/useReservations";
+import { useGetAllReservations, useGetOneReservations } from "../../hooks/useReservations";
 import reservationsAPI from "../../api/reservations-api";
 
 
 export default function ReservationEdit() {
+
     const navigate = useNavigate();
     const { reservationId } = useParams();
     const [reservation, setReservation] = useGetOneReservations(reservationId);
+    const [allReservations] = useGetAllReservations();
+
+   
     const {
         changeHandler,
         submitHandler,
@@ -15,19 +19,20 @@ export default function ReservationEdit() {
         setValues,
     } = useForm(reservation, async (values) => {
         const isConfirmed = confirm('Are you sure you want to save changes')
-        
+
         if (isConfirmed) {
             const updatedReservation = await reservationsAPI.update(reservationId, values)
             navigate(`/reservations`)
         }
     });
+    
 
 
 
     return (
         <>
             <section className="reservations">
-                <h1>Edit yourr eservation</h1>
+                <h1>Edit your eservation</h1>
                 <form onSubmit={submitHandler}>
                     <label htmlFor="name">Full Name:</label>
                     <input type="text"

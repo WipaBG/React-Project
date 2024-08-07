@@ -16,8 +16,8 @@ const getLatest = async () => {
     pageSize: 3, 
   });
   const result = await request.get(`${BASE_URL}?${URLSearchParams.toString()}`);
-  const latestGames = Object.values(result);
-  return latestGames;
+  const latesrReservations = Object.values(result);
+  return latesrReservations;
 };
 
 const getOne = (reservationId) => request.get(`${BASE_URL}/${reservationId}`);

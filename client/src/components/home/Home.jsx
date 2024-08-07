@@ -8,9 +8,14 @@ export default function Home() {
     useEffect(() => {
         (async () => {
 
-            const result = await reservationsAPI.getLatest();
+            try{
 
-            setLatestReservations(result)
+                const result = await reservationsAPI.getLatest();
+    
+                setLatestReservations(result)
+            }catch(err){
+                console.log(err.message)
+            }
 
         })();
     }, [])
